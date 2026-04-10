@@ -1,4 +1,5 @@
-// app/page.tsx
+import Link from 'next/link';
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
@@ -15,9 +16,11 @@ export default function Home() {
                 PREMIUM FREE
               </span>
             </div>
-            <button className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white text-sm font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all">
-              Sign In
-            </button>
+            <Link href="/login">
+              <button className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white text-sm font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all">
+                Sign In
+              </button>
+            </Link>
           </div>
         </div>
       </nav>
@@ -40,16 +43,18 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl text-white font-semibold hover:shadow-2xl hover:scale-105 transition-all">
-              Get Started Free →
-            </button>
+            <Link href="/login">
+              <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl text-white font-semibold hover:shadow-2xl hover:scale-105 transition-all">
+                Get Started Free →
+              </button>
+            </Link>
             <button className="px-8 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-gray-300 font-semibold hover:bg-gray-800 transition-all">
               View Demo
             </button>
           </div>
         </div>
 
-        {/* Stats Cards */}
+        {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20">
           <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
             <div className="text-3xl mb-2">🚀</div>
@@ -99,5 +104,5 @@ export default function Home() {
         </div>
       </main>
     </div>
-  )
+  );
 }
