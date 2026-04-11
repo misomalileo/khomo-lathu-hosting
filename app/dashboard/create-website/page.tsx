@@ -3,7 +3,10 @@
 import { supabase } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { ArrowLeft, Plus, Image, MapPin, Bed, Bath, DollarSign, Home, CheckCircle, AlertCircle } from 'lucide-react';
+import { 
+  ArrowLeft, Plus, Image, MapPin, Bed, Bath, DollarSign, 
+  Home, CheckCircle, AlertCircle, Upload, X
+} from 'lucide-react';
 
 export default function CreateWebsitePage() {
   const router = useRouter();
@@ -113,9 +116,9 @@ export default function CreateWebsitePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <div className="min-h-screen bg-gray-50">
+      {/* Header - Light Theme */}
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center gap-2 sm:gap-3">
             <button 
@@ -131,10 +134,11 @@ export default function CreateWebsitePage() {
         </div>
       </header>
 
+      {/* Main Content - Light Theme */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 md:py-12">
         <div className="bg-white rounded-xl sm:rounded-2xl border border-gray-200 p-5 sm:p-6 md:p-8 shadow-sm">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Property Details</h2>
-          <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">Fill in the information about your property</p>
+          <p className="text-sm sm:text-base text-gray-500 mb-6 sm:mb-8">Fill in the information about your property</p>
 
           {/* Subdomain */}
           <div className="mb-5 sm:mb-6">
@@ -147,7 +151,7 @@ export default function CreateWebsitePage() {
                 placeholder="myproperty"
                 value={subdomain}
                 onChange={(e) => setSubdomain(e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, ''))}
-                className="flex-1 px-4 py-2.5 sm:py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
+                className="flex-1 px-4 py-2.5 sm:py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-400 text-sm sm:text-base bg-white"
               />
               <span className="text-gray-500 text-sm sm:text-base text-center sm:text-left">.khomolathu.com</span>
             </div>
@@ -164,7 +168,7 @@ export default function CreateWebsitePage() {
               placeholder="e.g., Sunset Villa Apartments"
               value={propertyName}
               onChange={(e) => setPropertyName(e.target.value)}
-              className="w-full px-4 py-2.5 sm:py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
+              className="w-full px-4 py-2.5 sm:py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-400 text-sm sm:text-base bg-white"
             />
           </div>
 
@@ -178,7 +182,7 @@ export default function CreateWebsitePage() {
               rows={4}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full px-4 py-2.5 sm:py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base resize-none"
+              className="w-full px-4 py-2.5 sm:py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-400 text-sm sm:text-base resize-none bg-white"
             ></textarea>
           </div>
 
@@ -193,7 +197,7 @@ export default function CreateWebsitePage() {
                 placeholder="1500"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-                className="w-full px-4 py-2.5 sm:py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
+                className="w-full px-4 py-2.5 sm:py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-400 text-sm sm:text-base bg-white"
               />
             </div>
             <div>
@@ -205,7 +209,7 @@ export default function CreateWebsitePage() {
                 placeholder="3"
                 value={bedrooms}
                 onChange={(e) => setBedrooms(e.target.value)}
-                className="w-full px-4 py-2.5 sm:py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
+                className="w-full px-4 py-2.5 sm:py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-400 text-sm sm:text-base bg-white"
               />
             </div>
             <div>
@@ -217,7 +221,7 @@ export default function CreateWebsitePage() {
                 placeholder="2"
                 value={bathrooms}
                 onChange={(e) => setBathrooms(e.target.value)}
-                className="w-full px-4 py-2.5 sm:py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
+                className="w-full px-4 py-2.5 sm:py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-400 text-sm sm:text-base bg-white"
               />
             </div>
           </div>
@@ -232,14 +236,14 @@ export default function CreateWebsitePage() {
               placeholder="e.g., Lilongwe, Malawi"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="w-full px-4 py-2.5 sm:py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
+              className="w-full px-4 py-2.5 sm:py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-400 text-sm sm:text-base bg-white"
             />
           </div>
 
-          {/* Preview Card */}
-          <div className="bg-gradient-to-r from-gray-50 to-white rounded-xl p-4 sm:p-6 border border-gray-200 mb-6 sm:mb-8">
+          {/* Preview Card - Light Theme */}
+          <div className="bg-gray-50 rounded-xl p-4 sm:p-6 border border-gray-200 mb-6 sm:mb-8">
             <h3 className="font-semibold text-gray-700 mb-3 sm:mb-4 text-sm sm:text-base">Preview</h3>
-            <div className="bg-white rounded-lg p-3 sm:p-4 border shadow-sm">
+            <div className="bg-white rounded-lg p-3 sm:p-4 border border-gray-200 shadow-sm">
               <div className="w-full h-24 sm:h-32 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg mb-3 flex items-center justify-center">
                 <Image className="w-8 h-8 sm:w-10 sm:h-10 text-white/50" />
               </div>
@@ -248,7 +252,7 @@ export default function CreateWebsitePage() {
               <div className="flex flex-wrap gap-3 sm:gap-4 mt-2 text-xs sm:text-sm text-gray-600">
                 <span className="flex items-center gap-1"><Bed className="w-3 h-3" /> {bedrooms || '?'} beds</span>
                 <span className="flex items-center gap-1"><Bath className="w-3 h-3" /> {bathrooms || '?'} baths</span>
-                <span className="font-bold text-blue-600 flex items-center gap-1"><DollarSign className="w-3 h-3" /> {price || '?'}/month</span>
+                <span className="font-bold text-blue-600 flex items-center gap-1"><DollarSign className="w-3 h-3" /> ${price || '?'}/month</span>
               </div>
             </div>
           </div>
@@ -270,7 +274,7 @@ export default function CreateWebsitePage() {
           <button
             onClick={handleCreateWebsite}
             disabled={isCreating}
-            className="w-full py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all disabled:opacity-50 text-sm sm:text-base"
+            className="w-full py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg hover:scale-[1.02] transition-all disabled:opacity-50 text-sm sm:text-base"
           >
             {isCreating ? 'Creating...' : 'Create Website & Listing →'}
           </button>
